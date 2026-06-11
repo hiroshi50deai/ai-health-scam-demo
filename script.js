@@ -1,30 +1,56 @@
-const checklistButtons = document.querySelectorAll('.checklist button');
-const checkCount = document.getElementById('checkCount');
-const copyButton = document.getElementById('copyButton');
-const copyStatus = document.getElementById('copyStatus');
-const shareText = document.getElementById('shareText');
+const scrollButtons = document.querySelectorAll('[data-scroll-target]');
+const checkItems = document.querySelectorAll('.check-item');
+const checkedCount = document.getElementById('checkedCount');
+const checkWarning = document.getElementById('checkWarning');
+const copyButtons = document.querySelectorAll('[data-copy-target]');
 
-function updateCount() {
-  const count = document.querySelectorAll('.checklist button.checked').length;
-  checkCount.textContent = `${count}個チェックされています。`;
-  if (count >= 3) {
-    checkCount.textContent += ' すぐ買わず、家族や専門家に相談してください。';
-  }
-}
-
-checklistButtons.forEach((button) => {
+scrollButtons.forEach((button) => {
   button.addEventListener('click', () => {
-    button.classList.toggle('checked');
-    updateCount();
+    const targetSelector = button.getAttribute('data-scroll-target');
+    const target = document.querySelector(targetSelector);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   });
 });
 
-copyButton?.addEventListener('click', async () => {
-  const text = shareText?.innerText || '';
-  try {
-    await navigator.clipboard.writeText(text);
-    copyStatus.textContent = 'コピーしました。X投稿欄に貼り付けできます。';
-  } catch (error) {
-    copyStatus.textContent = 'コピーできませんでした。本文を選択してコピーしてください。';
+function updateChecklist() {
+  const count = document.querySelectorAll('.check-item.is-checked').length;
+  if (checkedCount) {
+    checkedCount.textContent = String(count);
   }
+  if (checkWarning) {
+    checkWarning.hidden = count < 3;
+  }
+}
+
+checkItems.forEach((item) => {
+  item.addEventListener('click', () => {
+    const isPressed = item.getAttribute('aria-pressed') === 'true';
+    item.setAttribute('aria-pressed', String(!isPressed));
+    item.classList.toggle('is-checked', !isPressed);
+    updateChecklist();
+  });
 });
+
+copyButtons.forEach((button) => {
+  button.addEventListener('click', async () => {
+    const targetSelector = button.getAttribute('data-copy-target');
+    const target = document.querySelector(targetSelector);
+    const status = button.parentElement?.querySelector('.copy-status');
+    const text = target?.innerText || '';
+
+    try {
+      await navigator.clipboard.writeText(text);
+      if (status) {
+        status.textContent = 'コピーしました。Xの投稿欄に貼り付けできます。';
+      }
+    } catch (error) {
+      if (status) {
+        status.textContent = 'コピーできませんでした。本文を選択してコピーしてください。';
+      }
+    }
+  });
+});
+
+updateChecklist();
