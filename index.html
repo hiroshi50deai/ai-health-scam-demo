@@ -1,152 +1,291 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AI時代の「自宅再生医療」詐欺デモ</title>
-  <meta name="description" content="AI時代に増えそうな高齢者向け健康詐欺LPの危険な表現を学ぶための、注意喚起用の架空デモサイトです。商品販売・医療提供・個人情報収集は行っていません。">
-  <meta property="og:title" content="AI時代の『自宅再生医療』詐欺デモ">
-  <meta property="og:description" content="AIで進化するのは詐欺商品の中身ではなく、見た目の“それっぽさ”かもしれない。注意喚起用の架空デモサイトです。">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AIが作り得る健康詐欺LPの構造を、監査レポート・解剖図・赤ペン添削として可視化する注意喚起用の架空デモサイトです。">
+  <title>AI健康詐欺LP 解剖デモ</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="#top">AI健康詐欺デモ</a>
-      <nav aria-label="主要ナビゲーション">
-        <a href="#demo">疑似LP</a>
-        <a href="#explain">赤ペン解説</a>
-        <a href="#checklist">チェックリスト</a>
-      </nav>
+  <header class="site-header" id="top">
+    <div class="disclaimer" role="note">
+      これは注意喚起のための架空デモサイトです。商品販売・医療提供・個人情報収集は行っていません。
     </div>
+    <nav class="site-nav" aria-label="ページ内ナビゲーション">
+      <a class="site-logo" href="#top">AI健康詐欺LP 解剖デモ</a>
+      <div class="nav-links">
+        <a href="#case-file">ケースファイル</a>
+        <a href="#anatomy">LP解剖</a>
+        <a href="#audit">赤ペン監査</a>
+        <a href="#checklist">チェック</a>
+      </div>
+    </nav>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-grid">
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-grid">
         <div class="hero-copy">
-          <p class="alert-label">注意喚起用の架空デモです</p>
-          <h1>このLP、あなたの親なら信じてしまうかもしれない。</h1>
-          <p class="lead">AIによって、健康詐欺の“見た目”はこれから急速に進化します。これは、高齢者向け「自宅再生医療」風LPの危険な構造を学ぶためのデモサイトです。</p>
-          <p class="notice">これは注意喚起のための架空デモサイトです。商品販売・医療提供・個人情報収集は行っていません。</p>
-          <div class="hero-actions">
-            <a class="button primary" href="#explain">危険な表現を見抜く</a>
-            <a class="button ghost" href="#share">X投稿文を見る</a>
+          <p class="kicker">Investigation Report / Fictional Demo</p>
+          <h1 id="hero-title">怖いのは、詐欺商品の中身ではない。“医療っぽさ”がAIで量産されること。</h1>
+          <p class="hero-lead">
+            AIは医療の中身を保証しない。でも、論文風の説明、医師監修風の安心感、体験談風の共感、家族向けFAQ、初回価格の導線まで、見た目だけは作れてしまう。
+          </p>
+          <div class="hero-actions" aria-label="主要アクション">
+            <button class="button button-primary" type="button" data-scroll-target="#case-file">疑似LPの構造を見る</button>
+            <button class="button button-ghost" type="button" data-scroll-target="#audit">危険表現を解体する</button>
           </div>
         </div>
-        <div class="lp-card" aria-label="架空LPの見本">
-          <span class="badge">架空の広告例</span>
-          <h2>CellAge AI Home Care</h2>
-          <p>AIがあなたの生活習慣に合わせて、毎日の“細胞活性化ケア”を提案。</p>
-          <ul>
-            <li>AIがあなた専用に設計</li>
-            <li>自宅でできる細胞活性化</li>
-            <li>再生医療級ケア</li>
-          </ul>
-          <p class="fake-price">月額 9,800円</p>
-          <p class="not-sale">購入・申込・問い合わせはできません</p>
+        <aside class="threat-panel" aria-label="このデモの監査対象">
+          <div class="panel-topline">
+            <span>Threat Model</span>
+            <strong>AI-HEALTH-LP / DEMO</strong>
+          </div>
+          <dl>
+            <div>
+              <dt>対象</dt>
+              <dd>高齢者と家族の健康不安</dd>
+            </div>
+            <div>
+              <dt>手口</dt>
+              <dd>医療っぽい言葉・権威・限定感の合成</dd>
+            </div>
+            <div>
+              <dt>危険</dt>
+              <dd>相談前の判断、定期契約、受診遅れ</dd>
+            </div>
+          </dl>
+          <p>このサイトは販売ページではなく、危険な広告構造を分解して読むための監査画面です。</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="case-file" class="section case-section" aria-labelledby="case-title">
+      <div class="section-label">Section 01 / Case File</div>
+      <div class="section-heading split-heading">
+        <div>
+          <h2 id="case-title">ケースファイル：自宅再生医療風AI広告</h2>
+          <p>本物のLPではありません。AIが作り得る“危険に見える部品”を、ブラウザ画面のスクリーンショット風に並べた監査サンプルです。</p>
+        </div>
+        <p class="classification">CLASSIFICATION: FICTIONAL / EDUCATIONAL</p>
+      </div>
+
+      <div class="browser-card" aria-label="危険な広告構造のスクリーンショット風カード">
+        <div class="browser-bar" aria-hidden="true">
+          <span></span><span></span><span></span>
+          <p>sample-ai-health-lp.invalid / captured-demo</p>
+        </div>
+        <div class="lp-capture">
+          <div class="capture-hero">
+            <p class="capture-badge">AI個別設計 <span>解析対象</span></p>
+            <h3><mark>高齢者の不安に刺さる見出し</mark>を先に置き、冷静な確認より感情を動かす</h3>
+            <p class="redacted-copy"><span>再生医療級</span><span>細胞コンディショニング</span><span>自宅完結</span></p>
+            <p class="annotation annotation-one">危険コピーを赤枠化：専門性のように見えるが根拠の範囲が不明</p>
+          </div>
+
+          <div class="capture-columns">
+            <article class="capture-module flagged">
+              <small>Authority Layer</small>
+              <h4>医師監修風</h4>
+              <p>監修者・資格・関与範囲を伏せたまま、安心感だけを借りる見せ方。</p>
+            </article>
+            <article class="capture-module flagged">
+              <small>Evidence Layer</small>
+              <h4>研究レビュー風</h4>
+              <p>研究一般の話を、その商品自体の効果に見せかける構造。</p>
+            </article>
+            <article class="capture-module flagged">
+              <small>Story Layer</small>
+              <h4>家族にすすめられた体験談風</h4>
+              <p>親を思う気持ちや罪悪感を、行動の後押しに変える語り口。</p>
+            </article>
+          </div>
+
+          <div class="capture-funnel">
+            <div>
+              <strong>初回限定</strong>
+              <span>時間圧力</span>
+            </div>
+            <div>
+              <strong>月額定期コース</strong>
+              <span>継続課金リスク</span>
+            </div>
+            <p>この導線は危険な広告構造の例です</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="demo" class="section demo-section">
-      <div class="container">
-        <div class="section-heading">
-          <p class="kicker">疑似LPセクション</p>
-          <h2>一見、最先端っぽく見える言葉</h2>
-          <p>以下は危険な広告表現の例です。本物の商品説明ではありません。</p>
+    <section id="anatomy" class="section anatomy-section" aria-labelledby="anatomy-title">
+      <div class="section-label">Section 02 / Flow Anatomy</div>
+      <div class="section-heading">
+        <h2 id="anatomy-title">LP解剖：詐欺LPは単語ではなく流れで人を動かす</h2>
+        <p>危険なのは一つの単語だけではありません。不安から行動までの導線が、監査すべき本体です。</p>
+      </div>
+      <div class="flow-grid">
+        <article class="flow-card">
+          <span>01</span>
+          <h3>不安の設定</h3>
+          <p>老化、寝たきり、家族への迷惑などを想像させる。</p>
+        </article>
+        <article class="flow-card">
+          <span>02</span>
+          <h3>科学っぽい言葉</h3>
+          <p>細胞、老化、再生、AI、個別最適化などで専門性を感じさせる。</p>
+        </article>
+        <article class="flow-card">
+          <span>03</span>
+          <h3>権威の演出</h3>
+          <p>医師監修、専門家チーム、研究機関、共同開発などで信用を借りる。</p>
+        </article>
+        <article class="flow-card">
+          <span>04</span>
+          <h3>行動の短縮</h3>
+          <p>医師不要、自宅完結、簡単、今すぐ開始などで確認の手間を省かせる。</p>
+        </article>
+        <article class="flow-card">
+          <span>05</span>
+          <h3>価格の罠</h3>
+          <p>初回価格、限定、月額定期コースで判断を急がせる。</p>
+        </article>
+        <article class="flow-card">
+          <span>06</span>
+          <h3>家族の罪悪感</h3>
+          <p>親を元気にしたい、迷惑をかけたくないという感情を利用する。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="evidence" class="section evidence-section" aria-labelledby="evidence-title">
+      <div class="section-label">Section 03 / Evidence Ladder</div>
+      <div class="section-heading">
+        <h2 id="evidence-title">専門家視点：本当に見るべきなのは根拠の階段</h2>
+        <p>「研究がある」という言葉だけでは不十分です。広告表現がどの段階まで確認されているのかを切り分けます。</p>
+      </div>
+      <ol class="evidence-ladder" aria-label="根拠の階段">
+        <li><span>1</span><p>研究一般が存在する</p></li>
+        <li><span>2</span><p>成分・機器に作用がある</p></li>
+        <li><span>3</span><p>人で安全性・有効性が検証されている</p></li>
+        <li><span>4</span><p>その商品そのものにデータがある</p></li>
+        <li><span>5</span><p>広告表現が根拠の範囲を超えていない</p></li>
+      </ol>
+      <div class="conclusion-box">
+        <p>「研究がある」と「この商品が効く」は別。</p>
+        <p>「専門家が関わった」と「効果が保証された」は別。</p>
+        <p>「AIが提案した」と「医師が診断した」は別。</p>
+      </div>
+    </section>
+
+    <section id="audit" class="section audit-section" aria-labelledby="audit-title">
+      <div class="section-label">Section 04 / Red Pen Audit</div>
+      <div class="section-heading split-heading">
+        <div>
+          <h2 id="audit-title">赤ペン監査</h2>
+          <p>広告で見かけた表現を、危険度とともに冷静に読み替えます。</p>
         </div>
-        <div class="claim-grid">
-          <article class="claim-card"><span>要注意表現</span><h3>AIがあなた専用に設計</h3><p>AIの出力を、医師の診断や治療計画のように見せる表現。</p></article>
-          <article class="claim-card"><span>要注意表現</span><h3>自宅でできる細胞活性化</h3><p>具体的な根拠が曖昧なまま、身体への作用を強く連想させる表現。</p></article>
-          <article class="claim-card"><span>要注意表現</span><h3>医師不要</h3><p>健康・医療領域で専門家の確認を不要と強調する危険な表現。</p></article>
-          <article class="claim-card"><span>要注意表現</span><h3>月額9,800円</h3><p>定期購入や解約トラブルにつながりやすい価格設計。</p></article>
-          <article class="claim-card"><span>要注意表現</span><h3>老化細胞にアプローチ</h3><p>科学的に聞こえるが、根拠や対象が不明な場合が多い表現。</p></article>
-          <article class="claim-card"><span>要注意表現</span><h3>再生医療級ケア</h3><p>医療行為や再生医療等製品と誤認させる可能性がある表現。</p></article>
-          <article class="claim-card"><span>要注意表現</span><h3>初回限定980円</h3><p>安さで判断を急がせ、定期コースへ誘導する典型的な見せ方。</p></article>
-          <article class="claim-card"><span>要注意表現</span><h3>医師監修風の安心設計</h3><p>監修者名、資格、関与範囲が曖昧なら信用しすぎない。</p></article>
+        <p class="red-pen-mark">添削中</p>
+      </div>
+      <div class="audit-table" role="table" aria-label="危険表現の赤ペン監査">
+        <div class="audit-row audit-head" role="row">
+          <div role="columnheader">表現</div>
+          <div role="columnheader">危険度</div>
+          <div role="columnheader">監査コメント</div>
+        </div>
+        <div class="audit-row" role="row">
+          <div role="cell">再生医療級</div>
+          <div role="cell"><span class="risk high">高</span></div>
+          <div role="cell">医療行為や再生医療等製品の効果を連想させる可能性がある。</div>
+        </div>
+        <div class="audit-row" role="row">
+          <div role="cell">細胞が若返る</div>
+          <div role="cell"><span class="risk high">高</span></div>
+          <div role="cell">若返り効果を断定的に連想させる。</div>
+        </div>
+        <div class="audit-row" role="row">
+          <div role="cell">AIが個別設計</div>
+          <div role="cell"><span class="risk medium">中</span></div>
+          <div role="cell">AIの出力を診断や治療計画のように誤認させる可能性がある。</div>
+        </div>
+        <div class="audit-row" role="row">
+          <div role="cell">医師不要</div>
+          <div role="cell"><span class="risk high">高</span></div>
+          <div role="cell">医療機関への相談を遅らせる危険がある。</div>
+        </div>
+        <div class="audit-row" role="row">
+          <div role="cell">医師監修</div>
+          <div role="cell"><span class="risk medium">中</span></div>
+          <div role="cell">監修者名、資格、関与範囲が不明なら安心材料にならない。</div>
+        </div>
+        <div class="audit-row" role="row">
+          <div role="cell">初回限定</div>
+          <div role="cell"><span class="risk medium">中</span></div>
+          <div role="cell">定期購入トラブルにつながりやすい。</div>
+        </div>
+        <div class="audit-row" role="row">
+          <div role="cell">体験談が多い</div>
+          <div role="cell"><span class="risk medium">中</span></div>
+          <div role="cell">主観的な感想で効果を連想させる。</div>
         </div>
       </div>
     </section>
 
-    <section id="explain" class="section explain-section">
-      <div class="container">
-        <div class="section-heading">
-          <p class="kicker red">赤ペン添削</p>
-          <h2>ここからが本題です。この表現、なぜ危ないのか？</h2>
-        </div>
-        <div class="redpen-list">
-          <div><strong>「再生医療級」</strong><p>医療行為や再生医療等製品と誤認させる可能性があります。“級”という曖昧な言葉で権威を借りている点に注意。</p></div>
-          <div><strong>「医師不要」</strong><p>健康・医療領域で医師の確認を不要と強調する表現は危険です。受診を遅らせるリスクがあります。</p></div>
-          <div><strong>「AIが個別設計」</strong><p>AIの提案は、医師の診断や治療計画ではありません。誰が責任を持つのかが曖昧になりやすい表現です。</p></div>
-          <div><strong>「老化細胞にアプローチ」</strong><p>科学的に見えても、何にどう作用するのか、根拠が不明な場合があります。</p></div>
-          <div><strong>「初回限定」「月額」</strong><p>判断を急がせ、定期購入トラブルにつながりやすい導線です。</p></div>
-          <div><strong>「医師監修」</strong><p>監修者名、資格、関与範囲が不明なら、安心材料として受け取りすぎない方が安全です。</p></div>
-        </div>
+    <section id="checklist" class="section checklist-section" aria-labelledby="checklist-title">
+      <div class="section-label">Section 05 / Family Checklist</div>
+      <div class="section-heading">
+        <h2 id="checklist-title">親に送るチェックリスト</h2>
+        <p>見かけた広告に当てはまる項目を押してください。3つ以上なら、立ち止まる合図です。</p>
+      </div>
+      <div class="check-panel">
+        <p class="check-count" aria-live="polite"><strong id="checkedCount">0</strong> / 12 checked</p>
+        <ul class="checklist" aria-label="親に送るチェックリスト">
+          <li><button type="button" class="check-item" aria-pressed="false">AIがあなた専用に設計</button></li>
+          <li><button type="button" class="check-item" aria-pressed="false">再生医療級</button></li>
+          <li><button type="button" class="check-item" aria-pressed="false">細胞が若返る</button></li>
+          <li><button type="button" class="check-item" aria-pressed="false">老化細胞にアプローチ</button></li>
+          <li><button type="button" class="check-item" aria-pressed="false">医師不要</button></li>
+          <li><button type="button" class="check-item" aria-pressed="false">自宅で完結</button></li>
+          <li><button type="button" class="check-item" aria-pressed="false">初回限定</button></li>
+          <li><button type="button" class="check-item" aria-pressed="false">月額定期コース</button></li>
+          <li><button type="button" class="check-item" aria-pressed="false">医師監修</button></li>
+          <li><button type="button" class="check-item" aria-pressed="false">研究機関と共同開発</button></li>
+          <li><button type="button" class="check-item" aria-pressed="false">体験談が多すぎる</button></li>
+          <li><button type="button" class="check-item" aria-pressed="false">解約はいつでも可能</button></li>
+        </ul>
+        <p class="check-warning" id="checkWarning" aria-live="polite" hidden>すぐ買わず、家族・医師・薬剤師・消費生活センターに相談してください</p>
       </div>
     </section>
 
-    <section id="checklist" class="section checklist-section">
-      <div class="container narrow">
-        <div class="section-heading">
-          <p class="kicker">家族向けチェックリスト</p>
-          <h2>この言葉が3つ以上あったら、すぐ買わない</h2>
-          <p>クリックするとチェックできます。親や祖父母に送る前提で作っています。</p>
-        </div>
-        <div class="checklist" role="list">
-          <button type="button">再生医療級</button>
-          <button type="button">細胞が若返る</button>
-          <button type="button">老化細胞</button>
-          <button type="button">AIが個別最適化</button>
-          <button type="button">医師不要</button>
-          <button type="button">初回限定</button>
-          <button type="button">定期コース</button>
-          <button type="button">いつでも解約可能</button>
-          <button type="button">医師監修</button>
-          <button type="button">研究機関と共同開発</button>
-          <button type="button">体験談が多すぎる</button>
-          <button type="button">返金保証</button>
-        </div>
-        <p id="checkCount" class="check-count">0個チェックされています。</p>
+    <section id="share" class="section share-section" aria-labelledby="share-title">
+      <div class="section-label">Section 06 / Share Text</div>
+      <div class="section-heading">
+        <h2 id="share-title">このままXに貼れる注意喚起文</h2>
+        <p>身近な人に送るための短い注意喚起文です。</p>
       </div>
-    </section>
+      <div class="share-card">
+        <p id="shareText">AI時代に怖いのは、詐欺商品の中身が進化することではなく、詐欺商品の“見た目”だけが異常に進化すること。
 
-    <section class="section action-section">
-      <div class="container">
-        <div class="section-heading">
-          <p class="kicker red">怪しいと思ったら</p>
-          <h2>やることは3つ</h2>
-        </div>
-        <div class="action-grid">
-          <div><span>1</span><h3>スクショを撮る</h3><p>ページ、価格、会社名、解約条件を残す。</p></div>
-          <div><span>2</span><h3>家族に送る</h3><p>一人で判断せず、第三者の目を入れる。</p></div>
-          <div><span>3</span><h3>専門家に相談する</h3><p>医師、薬剤師、消費生活センターに確認する。</p></div>
-        </div>
-      </div>
-    </section>
+「AI設計」
+「再生医療級」
+「自宅で若返り」
+「医師不要」
+「月額定期コース」
 
-    <section id="share" class="section share-section">
-      <div class="container narrow">
-        <div class="section-heading">
-          <p class="kicker">X投稿文</p>
-          <h2>このままXに貼れる注意喚起文</h2>
-        </div>
-        <div class="share-box">
-          <p id="shareText">AI時代に怖いのは、詐欺商品の中身が進化することではなく、詐欺商品の“見た目”だけが異常に進化すること。\n\n「AI設計」「再生医療級」「自宅で若返り」「医師不要」「月額9,800円」\n\nこの組み合わせを見たら、すぐ買わないで家族に相談してほしい。\n\n※販売・申込・個人情報収集は一切ない注意喚起デモです。</p>
-          <button id="copyButton" type="button" class="button primary">投稿文をコピーする</button>
-          <p id="copyStatus" class="copy-status" aria-live="polite"></p>
-        </div>
+この組み合わせを見たら、すぐ買わないで家族に相談してほしい。
+
+注意喚起用の架空デモを作りました。
+販売・申込・個人情報収集はありません。</p>
+        <button class="button button-primary copy-button" type="button" data-copy-target="#shareText">X投稿文をコピーする</button>
+        <p class="copy-status" aria-live="polite"></p>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p>これは注意喚起のための架空デモサイトです。商品販売・医療提供・個人情報収集は行っていません。</p>
-      <p>実在の商品・団体・医療機関とは関係ありません。医療・健康上の判断は専門家に相談してください。</p>
+    <div class="disclaimer" role="note">
+      これは注意喚起のための架空デモサイトです。商品販売・医療提供・個人情報収集は行っていません。
     </div>
+    <p>AI健康詐欺LP 解剖デモ / Fictional Awareness Site</p>
   </footer>
 
   <script src="script.js"></script>
